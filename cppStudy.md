@@ -17,10 +17,10 @@
   - `static_cast` 普适，除了常量指针
     - 替代 (type_id) 风格的强制类型转换
     - 用于有关联（比如继承等）类的类型转换，可以用于还原 `void*` 中的内容
-    - 不能转换掉 const 或 volitale
+    - 不能转换掉 const 或 volitale (*使用const_cast*)
     - 转换有关联（比如继承等）类的**实例对象**，上行可以，下行（被视为没有关联）不行
     - 用于没有多态的类**实例指针或引用**之间的转换，上行可以，下行不安全（没有进行显示报错），无关联的类报错
-    - 用于具有多态的类实例指针或引用之间的转换，上行可以，下行可能会错误。 [CSDN解释](https://blog.csdn.net/weixin_43798887/article/details/118424172#:~:text=%E6%80%81%E7%9A%84%E5%B7%AE%E4%B8%8D%E5%A4%9A%EF%BC%8C-,%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E4%B8%8D%E6%AD%A3%E5%B8%B8%E7%9A%84%E4%B8%8B%E8%A1%8C%E8%BD%AC%E6%8D%A2%E4%BE%8B%E5%AD%90,-%EF%BC%9A)
+    - 用于具有多态的类实例指针或引用之间的转换，上行可以，下行可能会错误。(*使用dynamic_cast*) [CSDN解释](https://blog.csdn.net/weixin_43798887/article/details/118424172#:~:text=%E6%80%81%E7%9A%84%E5%B7%AE%E4%B8%8D%E5%A4%9A%EF%BC%8C-,%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E4%B8%8D%E6%AD%A3%E5%B8%B8%E7%9A%84%E4%B8%8B%E8%A1%8C%E8%BD%AC%E6%8D%A2%E4%BE%8B%E5%AD%90,-%EF%BC%9A)
 
   - `const_cast` **只适用于**常量指针， **只有它**才能改变`const`
 
